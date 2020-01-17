@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Roku Remote</title>
+</head>
+<h3>Roku Remote</h3>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<div>
+    Volume<br/>
+    <button id="VolumeDown">Volume Down</button>
+    <button id="VolumeUp">Volume Up</button>
+    <button id="VolumeMute">Mute</button>
+    <br/><br/>
+</div>
+<div>
+    Nav<br/>
+    <button id="Home">Home</button><br/>
+    <div>
+        <button id="Up">Up</button>
+    </div>
+    <div>
+        <button id="Left">Left</button>
+        <button id="Right">Right</button>
+    </div>
+    <div>
+        <button id="Down">Down</button>
+    </div>
+    <br/>
+</div>
+<div>
+    Inputs<br/>
+
+    <button id="InputHDMI1">HDMI1</button>
+    <button id="InputHDMI2">HDMI2</button>
+</div>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+      goURL = "http://10.0.0.213:8060/keypress/" + $(this).attr('id')
+      $.ajax({url: goURL, data: "", type: "POST"
+      });
+    });
+});
+</script>
+
+
+</body>
+</html>
